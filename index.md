@@ -15,15 +15,15 @@ And just want to write down things about what I heard and learned recently
 The introduction is written in English but the blog will be written in Chinese 
 (Because of my poor English)    
 ## Habits   
-- C/C++
-- Python
-- HTML
-- Drawing
-- Linux-related
-- Psychology
-- Animation
+- C/C++     
+- Python    
+- HTML    
+- Drawing    
+- Linux-related    
+- Psychology    
+- Animation    
 
 ## TODOs
-- Relearn C++ (Booster and the standard of C++11/14)
-- Practice HTML
-- Finish [AOSC-Parted](https://github.com/AOSC-Dev/AOSC-Parted)
+- Relearn C++ (Booster and the standard of C++11/14)    
+- Practice HTML     
+- Finish [AOSC-Parted](https://github.com/AOSC-Dev/AOSC-Parted)     
