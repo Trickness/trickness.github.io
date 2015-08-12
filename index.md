@@ -13,7 +13,8 @@ Get contact with me at: [E-Mail](mailto:sternwzhang@outlook.com)
 I am an unlearned student in China,Too young too simple.     
 And just want to write down things about what I heard and learned recently    
 The introduction is written in English but the blog will be written in Chinese 
-(Because of my poor English)    
+(Because of my poor English)   
+
 ## Habits   
 - C/C++     
 - Python    
