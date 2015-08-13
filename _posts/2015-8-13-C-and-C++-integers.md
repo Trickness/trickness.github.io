@@ -33,7 +33,7 @@ tags : [C/C++, Integer]
 大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准是支持的，于是本人就做了如下测试:     
 
 ### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11    
-```    
+````    
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -49,7 +49,7 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-```
+````
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
 `$ ./test`
@@ -64,7 +64,7 @@ int main(){
 
 我们要来确认下它**是否保存了16Byte大小的数字**(最高约为3.4*10^38)     
 
-```   
+`````   
 #include <iostream> 
 #include <cstdint>
 
@@ -84,7 +84,7 @@ int main(){
     print_uint128(s);
     cout << endl;
 }   
-```   
+`````   
 (部分代码引用自[[2]](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc))    
 
 得到结果    
