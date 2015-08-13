@@ -36,7 +36,7 @@ tags : [C/C++, Integer]
 
 `$ cat test.cpp`       
 
-```    
+<code>
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -52,7 +52,7 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-```    
+</code>
 
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
@@ -70,7 +70,7 @@ INT128 hasn't been defined
 
 我们要来确认下它**是否保存了16Byte大小的数字**(最高约为3.4*10^38)     
 
-<pre><code>
+<code>
 #include <iostream>
 #include <cstdint>
 
@@ -90,7 +90,7 @@ int main(){
     print_uint128(s);
     cout << endl;
 } 
-</code></pre>   
+</code>
 
 (部分代码引用自[[2]](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc))    
 
