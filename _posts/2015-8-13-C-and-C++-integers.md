@@ -98,7 +98,7 @@ tags : [C/C++, Integer]
 ## 其他    
 在网上找到的许多文章都是使用的 *int128_t* 这类，但是在我系统上并没有这种数据类型的定义，所以我直接使用的 *__int128* 和 *unsigned __int128* 这两种数据类型    
 值得注意的是，我并没有
-`s = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`, 而是 `s = 0xFFFFFFFFFFFFFFFF;s = s * s` 因为在我实验中，直接赋值 `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF` 只能得到 ** *uint64_t* 所能容纳的最大值**,这说明在编译器中对于 *__int128* 的**支持尚不完全**      
+`s = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`, 而是 `s = 0xFFFFFFFFFFFFFFFF;s = s * s` 因为在我实验中，直接赋值 `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF` 只能得到 ** *uint64_t* 所能容纳的最大值**,这说明在编译器中对于 *__int128* 的 __支持尚不完全__      
 
 ## 结束语    
 
