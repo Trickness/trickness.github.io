@@ -29,11 +29,11 @@ tags : [C/C++, Integer]
 
 > As an extension the integer scalar type __int128 is supported for targets which have an integer mode wide enough to hold 128 bits. Simply write __int128 for a signed 128-bit integer, or unsigned __int128 for an unsigned 128-bit integer. There is no support in GCC for expressing an integer constant of type __int128 for targets with long long integer less than 128 bits wide. [1]
 
-
 大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准是支持的，于是本人就做了如下测试:     
 
 ### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11    
-````    
+
+```
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -49,22 +49,22 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-````
+```
+
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
 `$ ./test`
 
-`intmax_t's size = 8`      
-`__int128's size = 16`      
-`INT128 hasn't been defined`
+> intmax_t's size = 8   
+> __int128's size = 16       
+> INT128 hasn't been defined    
 
 奇怪的是    
 **_INT128_DEFINED 这个宏并没有被定义，但是 *__int128* 这个数据类型却通过了编译，且却实占用了16Byte的内存空间**(哪位朋友知道的邮件我)      
 
-
 我们要来确认下它**是否保存了16Byte大小的数字**(最高约为3.4*10^38)     
 
-`````   
+```   
 #include <iostream> 
 #include <cstdint>
 
@@ -84,7 +84,8 @@ int main(){
     print_uint128(s);
     cout << endl;
 }   
-`````   
+```   
+
 (部分代码引用自[[2]](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc))    
 
 得到结果    
