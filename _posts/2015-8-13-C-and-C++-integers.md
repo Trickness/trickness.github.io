@@ -61,7 +61,7 @@ int main(){
 intmax_t's size = 8      
 __int128's size = 16      
 INT128 hasn't been defined      
-</pre></code>
+</code></pre>
 奇怪的是    
 **_INT128_DEFINED 这个宏并没有被定义，但是 *__int128* 这个数据类型却通过了编译，且却实占用了16Byte的内存空间**(哪位朋友知道的邮件我)      
 
@@ -96,7 +96,7 @@ int main(){
 <pre><code>
 $ ./test      
 340282366920938463426481119284349108225      
-</pre></code>
+</code></pre>
 *__int128*确实保存了2的128次方大小的数据     
 
 ## 其他    
