@@ -6,13 +6,13 @@ tags : [C/C++, Integer]
 ---
 {% include JB/setup %}
 
-## C/C++ 中的二进制量    
+## C/C++ 中的二进制量     
 
 我们在C/C++中常常使用的二进制类型是 _int_ ，然而 _int_ 并不是一个准确的数据类型，在不同编译器上， _int_ __的大小可能不同__，_int_ __只保证有最少为16位，最大可能为64位__    
 
 > *在网络编程以及其他对整数大小和上限要求严格的地方，请避免使用 _int_ 或者 _long_ 这类数据类型*    
 
-## 实际编程中常用的二进制类型
+## 实际编程中常用的二进制类型    
 
 在实际编程中，我们常用的二进制数据类型有如下(当然也有与其配套的unsigned xxx_t)    
 
@@ -32,11 +32,11 @@ tags : [C/C++, Integer]
 
 大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准是支持的，于是本人就做了如下测试:     
 
-### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11
+### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11      
 
-`$ cat test.cpp`  
+`$ cat test.cpp`       
 
-<pre><code>    
+```    
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -52,7 +52,7 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-</code></pre>    
+```    
 
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
@@ -63,6 +63,7 @@ intmax_t's size = 8
 __int128's size = 16      
 INT128 hasn't been defined      
 </code></pre>     
+
 奇怪的是    
 **_INT128_DEFINED 这个宏并没有被定义，但是 *__int128* 这个数据类型却通过了编译，且却实占用了16Byte的内存空间**(哪位朋友知道的邮件我)      
 
