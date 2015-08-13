@@ -57,11 +57,10 @@ int main(){
 
 `$ ./test`
 
-<pre><code>
-intmax_t's size = 8      
-__int128's size = 16      
-INT128 hasn't been defined      
-</code></pre>
+`intmax_t's size = 8`      
+`__int128's size = 16`      
+`INT128 hasn't been defined`
+
 奇怪的是    
 **_INT128_DEFINED 这个宏并没有被定义，但是 *__int128* 这个数据类型却通过了编译，且却实占用了16Byte的内存空间**(哪位朋友知道的邮件我)      
 
