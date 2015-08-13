@@ -36,7 +36,7 @@ tags : [C/C++, Integer]
 
 `$ cat test.cpp`  
 
-<pre><code>
+<pre><code>    
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -52,7 +52,8 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-</code></pre>
+</code></pre>    
+
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
 `$ ./test`
@@ -88,7 +89,8 @@ int main(){
     print_uint128(s);
     cout << endl;
 } 
-</code></pre>
+</code></pre>   
+
 (部分代码引用自[[2]](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc))    
 
 得到结果    
