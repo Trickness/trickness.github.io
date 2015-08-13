@@ -36,7 +36,7 @@ tags : [C/C++, Integer]
 
 `$ cat test.cpp`  
 
-```    
+<pre><code>
 #include <iostream>
 #include <cstdint>
 using namespace std;
@@ -52,23 +52,23 @@ int main(){
     cout << "INT128 hasn't been defined" << endl;
 #endif
 }
-```    
+</code></pre>
 使用 `$ g++ -o test test.cpp -std=c++11` 编译成功，运行得到的结果却让我有点迷茫    
 
 `$ ./test`
 
-```     
+<pre><code>
 intmax_t's size = 8      
 __int128's size = 16      
 INT128 hasn't been defined      
-```     
+</code></pre>     
 奇怪的是    
 **_INT128_DEFINED 这个宏并没有被定义，但是 *__int128* 这个数据类型却通过了编译，且却实占用了16Byte的内存空间**(哪位朋友知道的邮件我)      
 
 
 我们要来确认下它**是否保存了16Byte大小的数字**(最高约为3.4*10^38)     
 
-```    
+<pre><code>
 #include <iostream>
 #include <cstdint>
 
@@ -88,15 +88,13 @@ int main(){
     print_uint128(s);
     cout << endl;
 } 
-```     
+</code></pre>
 (部分代码引用自[[2]](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc))    
 
 得到结果    
 
-```    
-$ ./test      
-340282366920938463426481119284349108225      
-```    
+`340282366920938463426481119284349108225`    
+
 *__int128*确实保存了2的128次方大小的数据     
 
 ## 其他    
