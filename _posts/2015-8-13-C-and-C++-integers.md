@@ -30,9 +30,11 @@ tags : [C/C++, Integer]
 > As an extension the integer scalar type __int128 is supported for targets which have an integer mode wide enough to hold 128 bits. Simply write __int128 for a signed 128-bit integer, or unsigned __int128 for an unsigned 128-bit integer. There is no support in GCC for expressing an integer constant of type __int128 for targets with long long integer less than 128 bits wide. [1]
 
 
-大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准是支持的，于是本人就做了如下测试:     
+大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准.    
 
-### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11      
+我们便在不同平台做了如下测试:    
+
+### Debian x86_64 with gcc version 4.9.3 (Debian 4.9.3-3) -std=c++11           
 
 `$ cat test.cpp`       
 
@@ -93,18 +95,27 @@ tags : [C/C++, Integer]
 
 `340282366920938463426481119284349108225`    
 
-*__int128*确实保存了2的128次方大小的数据     
+*__int128*确实保存了2的128次方大小的数据        
+
+
+### Windows X86_64 with gcc 4.9.2 (i686-posix-dwarf-rev1, Built by MinGW-W64 project)      
+
+在MinGW上，事情变得比较奇怪了，我这里实验发现 `_INT128_DEFINED` 这个宏是被定义了的，然而却找不到任何类似于 *__int128* *int128_t* *int128* 之类的数据类型的存在    
+
+这里也就没法演示了     
 
 ## 其他    
-在网上找到的许多文章都是使用的 *int128_t* 这类，但是在我系统上并没有这种数据类型的定义，所以我直接使用的 *__int128* 和 *unsigned __int128* 这两种数据类型    
-值得注意的是，我并没有
+1. 在网上找到的许多文章都是使用的 *int128_t* 这类，但是在我Debian系统上并没有这种数据类型的定义，只存在 *__int128* 和 *unsigned __int128* 这两种数据类型    
+2. 值得注意的是，我并没有直接
 `s = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`, 而是 `s = 0xFFFFFFFFFFFFFFFF;s = s * s` 因为在我实验中，直接赋值 `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF` 只能得到 __*uint64_t* 所能容纳的最大值__,这说明在编译器中对于 *__int128* 的  **支持尚不完全**  
 
 ## 结束语    
 
-据说这个支持在 GCC 4.8以后（待考证）才有，不过如果能在 _NOIP_ 上能用 *__int128* 这种二进制量的话，老师再也不用担心我不会做高精度题目了    
+1. 据说这个支持在 GCC 44.4.6以后[[3]](http://4byte.cn/question/1000920/int128-on-linux-for-intel-compiler.html)（待考证）就已经存在，不过希望大家多下去考证
+2. 如果能在 _NOIP_ 上能用 *__int128* 这种二进制量的话，老师再也不用担心我的高精度题目了    
 
 
 ## 参考资料
 [1][how to print __uint128_t number using gcc?](http://stackoverflow.com/questions/11656241/how-to-print-uint128-t-number-using-gcc)      
 [2][6.8 128-bit Integers](https://gcc.gnu.org/onlinedocs/gcc/_005f_005fint128.html)
+[3][int128 on Linux for Intel compiler](http://4byte.cn/question/1000920/int128-on-linux-for-intel-compiler.html)
