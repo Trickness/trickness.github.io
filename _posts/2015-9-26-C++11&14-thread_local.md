@@ -11,7 +11,7 @@ tags : [C++11&14, thread_local]
 
 ## 简单示例
 
-```
+<pre><code>
 
 #include <iostream>
 #include <memory>
@@ -45,14 +45,15 @@ int main(){
     return 0;
 }
 
-```    
+</code></pre>
 
 运行输出为`34509`,`30549`之类    
 
 我们使用`thread_local`修饰符在全局声明了一个`i`变量，这个`i`变量将被每个新建线程拷贝并作为其域内的变量，所以线程1中的`i`变量与main中的`i`变量指向不同地址，所以我们在main中修改了i的值，然而线程中打印出来的`i`的值仍然为0     
 可是这个`thread_local`变量仍然是一个变量，我们依旧能够使用取地址操作或者通过引用的方法传递给其他线程修改     
 如同    
-```
+
+<pre><code>
 
 thread_local int i=0;
 
@@ -67,5 +68,6 @@ int main(){
     std::cout<<i<<std::endl;
 }
 
-```    
+</code></pre>
+
 如果没有出错，程序将输出`42`
