@@ -12,6 +12,7 @@ tags : [C++11&14, thread_local]
 ## 简单示例
 
 ```
+
 #include <iostream>
 #include <memory>
 #include <thread>
@@ -43,6 +44,7 @@ int main(){
     std::cout << i << std::endl;
     return 0;
 }
+
 ```    
 
 运行输出为`34509`,`30549`之类    
@@ -51,6 +53,7 @@ int main(){
 可是这个`thread_local`变量仍然是一个变量，我们依旧能够使用取地址操作或者通过引用的方法传递给其他线程修改     
 如同    
 ```
+
 thread_local int i=0;
 
 void thread_func(int*p){
@@ -63,5 +66,6 @@ int main(){
     t.join();
     std::cout<<i<<std::endl;
 }
+
 ```    
 如果没有出错，程序将输出`42`
