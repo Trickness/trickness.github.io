@@ -9,10 +9,9 @@ tags : [C++11&14, thread_local]
 # thread_local variables	    
 在C++11标准中添加了一个名为thread_local的关键字，用来声明线程的局部变量，其使用方式如下
 
-## 简单示例
+## 简单示例    
 
 <pre><code>
-
 #include <iostream>
 #include <memory>
 #include <thread>
@@ -44,8 +43,8 @@ int main(){
     std::cout << i << std::endl;
     return 0;
 }
+</code></pre>    
 
-</code></pre>
 
 运行输出为`34509`,`30549`之类    
 
@@ -68,6 +67,6 @@ int main(){
     std::cout<<i<<std::endl;
 }
 
-</code></pre>
+</code></pre>    
 
 如果没有出错，程序将输出`42`
