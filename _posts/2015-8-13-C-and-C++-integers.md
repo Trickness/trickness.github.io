@@ -2,7 +2,7 @@
 layout: post
 category : C/C++
 tagline: "Bigger than bigger"
-tags : [C/C++, Integer]
+tags : [C++, C, Integer]
 ---
 {% include JB/setup %}
 
@@ -30,7 +30,7 @@ tags : [C/C++, Integer]
 > As an extension the integer scalar type __int128 is supported for targets which have an integer mode wide enough to hold 128 bits. Simply write __int128 for a signed 128-bit integer, or unsigned __int128 for an unsigned 128-bit integer. There is no support in GCC for expressing an integer constant of type __int128 for targets with long long integer less than 128 bits wide. [1]
 
 
-大概来说就是看上去gcc是支持 _int128_ 和 _unsigned int128_ 的，但是又没指明是否作为标准.    
+大概来说就是看上去gcc是支持 `int128` 和 `unsigned int128` 的，但是又没指明是否作为标准.    
 
 我们便在不同平台做了如下测试:    
 
@@ -95,24 +95,24 @@ tags : [C/C++, Integer]
 
 `340282366920938463426481119284349108225`    
 
-*__int128*确实保存了2的128次方大小的数据        
+`__int128`确实保存了2的128次方大小的数据        
 
 
 ### Windows X86_64 with gcc 4.9.2 (i686-posix-dwarf-rev1, Built by MinGW-W64 project)      
 
-在MinGW上，事情变得比较奇怪了，我这里实验发现 `_INT128_DEFINED` 这个宏是被定义了的，然而却找不到任何类似于 *__int128* *int128_t* *int128* 之类的数据类型的存在    
+在MinGW上，事情变得比较奇怪了，我这里实验发现 `_INT128_DEFINED` 这个宏是被定义了的，然而却找不到任何类似于 `__int128` `int128_t` `int128` 之类的数据类型的存在    
 
 这里也就没法演示了     
 
 ## 其他    
-1. 在网上找到的许多文章都是使用的 *int128_t* 这类，但是在我Debian系统上并没有这种数据类型的定义，只存在 *__int128* 和 *unsigned __int128* 这两种数据类型    
+1. 在网上找到的许多文章都是使用的 `int128_t` ，但是在我Debian系统上并没有这种数据类型的定义，只存在 `__int128` 和 `unsigned __int128` 这两种数据类型    
 2. 值得注意的是，我并没有直接
-`s = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`, 而是 `s = 0xFFFFFFFFFFFFFFFF;s = s * s` 因为在我实验中，直接赋值 `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF` 只能得到 __*uint64_t* 所能容纳的最大值__,这说明在编译器中对于 *__int128* 的  **支持尚不完全**  
+`s = 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF`, 而是 `s = 0xFFFFFFFFFFFFFFFF;s = s * s` 因为在我实验中，直接赋值 `0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF` 只能得到 `__uint64_t` 所能容纳的最大值__,这说明在编译器中对于 `__int128` 的  **支持尚不完全**  
 
 ## 结束语    
 
 1. 据说这个支持在 GCC 44.4.6以后[[3]](http://4byte.cn/question/1000920/int128-on-linux-for-intel-compiler.html)（待考证）就已经存在，不过希望大家多下去考证
-2. 如果能在 _NOIP_ 上能用 *__int128* 这种二进制量的话，老师再也不用担心我的高精度题目了    
+2. 如果能在 _NOIP_ 上能用 `__int128` 这种二进制量的话，老师再也不用担心我的高精度题目了    
 
 
 ## 参考资料
