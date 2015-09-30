@@ -5,7 +5,7 @@ tagline: Introduce Myself
 ---
 {% include JB/setup %}
 
-一届学渣在世(代)界(码)的中心呼唤爱
+一届学渣在世(代)界(码)的中心呼唤自由(Freedom)
 
 Get contact with me at: [E-Mail](mailto:sternwzhang@outlook.com)
 
@@ -26,5 +26,5 @@ The introduction is written in English but the blog will be written in Chinese
 
 ## TODOs
 - Relearn C++ (Booster and the standard of C++11/14)    
+- Learn to use Libevent
 - Practice HTML     
-- Finish [AOSC-Parted](https://github.com/AOSC-Dev/AOSC-Parted)     
