@@ -113,5 +113,5 @@ thread-local storage 和 `static`(或者说`global`) 存储很类似，每一个
 在通常情况下并不建议使用全局变量，或者说使用全局变量的时候就通常说明你的程序设计得有问题。少用全局变量能够增强你程序(函数)的可重入性。毕竟是用全局变量将可能导致一些难以预见的问题(通常在多线程同步中)，并且难以模块化。所以在程序(函数)设计初期就请人这思考构建方式，做到少用全局变量，多用局部变量。
 
 ## 参考资料
-[1][what-does-the-thread-local-mean-in-c11](http://stackoverflow.com/questions/11983875/what-does-the-thread-local-mean-in-c11)
+[1][what-does-the-thread-local-mean-in-c11](http://stackoverflow.com/questions/11983875/what-does-the-thread-local-mean-in-c11)      
 [2][(MSVC)支持 C++11/14/17 功能（现代 C++）](https://msdn.microsoft.com/zh-cn/library/hh567368.aspx)
